@@ -584,5 +584,8 @@ public final class TJ {
     if (subsamp < 0 || subsamp >= NUMSAMP)
       throw new IllegalArgumentException("Invalid subsampling type");
   }
+  public static String getDefaultVersion() {
+    return AdvancedTJLoader.LIB_VERSION_DEFAULT;
+  }
 
 }

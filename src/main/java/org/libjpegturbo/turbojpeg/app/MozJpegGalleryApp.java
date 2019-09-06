@@ -6,8 +6,7 @@ import org.libjpegturbo.turbojpeg.processor.api.ImageProcessInfo;
 import org.libjpegturbo.turbojpeg.processor.api.ImageProcessor;
 import org.libjpegturbo.turbojpeg.processor.impl.ImageProcessorImpl;
 import org.libjpegturbo.turbojpeg.processor.utils.ImageProcessorUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -32,7 +31,7 @@ public class MozJpegGalleryApp {
 
     protected final static String VERSION = TJ.getDefaultVersion();
 
-    private final static Logger log = LoggerFactory.getLogger(MozJpegGalleryApp.class);
+
 
     private final static ImageProcessor processor = new ImageProcessorImpl();
 
@@ -63,7 +62,7 @@ public class MozJpegGalleryApp {
                 String outImageName = "proc_" + q + "_" + image.getName();
                 Path outImage = Paths.get(outDir.getPath() + File.separator + outImageName);
 
-                log.info("Processing image with quality={}: {}", q, inImage.getFileName());
+
 
                 long startTime = System.currentTimeMillis();
                 ImageProcessInfo processInfo = ImageProcessInfo.fromMap(ImageProcessorUtils.compressImage(processor, inImage.toFile(), outImage.toFile(), q));
@@ -71,7 +70,7 @@ public class MozJpegGalleryApp {
 
                 long outImageSize = outImage.toFile().length();
 
-                log.info("Total time: {} msec", totalTime);
+         
 
                 html.write("<h2>" + inImage.getFileName() + "</h2>\r\n");
                 html.write("<h3>Quality: " + q + "<br>\r\n");
